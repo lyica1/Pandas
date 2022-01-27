@@ -10,7 +10,7 @@ print(dataSets.df.tail())
 # The dimensions of the dataframe as a (rows, cols) tuple
 print(dataSets.df.shape)
 
-# The number of columns. Equal to df.shape[0]
+# The number of row. Equal to df.shape[0]
 print(len(dataSets.df))
 
 # An array of the column names
@@ -22,5 +22,5 @@ print(dataSets.df.dtypes)
 # Converts the frame to a two-dimensional table
 print(dataSets.df.values)
 
-# Displays descriptive stats for all columns
+# Displays descriptive stats for all columns # 찾아볼것
 print(dataSets.df.describe())
