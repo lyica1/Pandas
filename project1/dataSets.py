@@ -7,3 +7,6 @@ df = pandas.DataFrame({
    'col2': ['Gold', 'Bronze', 'Gold', 'Silver'],
    'col3': [1, 2, np.nan, 4]
 })
+
+data = pandas.read_csv("project1.csv", index_col="name")
+
