@@ -8,5 +8,5 @@ df = pd.DataFrame({
    'col3': [1, 2, np.nan, 4]
 })
 
-data = pandas.read_csv("project1.csv", index_col="name")
+data = pd.read_csv("project1.csv", index_col="name")
 
