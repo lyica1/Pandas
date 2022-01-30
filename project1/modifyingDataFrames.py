@@ -24,7 +24,7 @@ print("============================")
 # **Iterate rows and modify a value in 'age' to 30, tip: .iterrows()
 data_3 = dataSets.data
 print(data_3)
-print("----------------------------")
+print("-----------------------------")
 for index,row in data_3.iterrows():
     row['age']=30
     print(index+" changed")
