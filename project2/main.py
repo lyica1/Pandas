@@ -33,7 +33,11 @@ columns=['Order ID','Product','Quantity Ordered','Price Each','Order Date','Purc
 new_df=new_df[~new_df.isin(columns)]
 print(new_df.head(10))
 print('==================================================')
+
+
 #Problem3: Drop NaN rows. Some rows contain NaN.
+
+
 print("Problem3 : ")
 new_df.dropna(inplace=True)
 print(new_df.head(10))
