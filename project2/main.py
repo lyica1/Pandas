@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 #Try to invoke .head() before you get started. It will give you some general concepts of what data is included in the csv files
 #You will face some data type issues. Make sure to convert data if needed,
@@ -71,5 +72,25 @@ print('==================================================')
 
 
 print("Problem6 : ")
-print(new_df.groupby('Month')['Sales'].mean())
-print("Max Value : "+ str(new_df.groupby('Month')['Sales'].mean().max()))
+print(new_df.groupby('Month')['Sales'].sum())
+print("Max Value : "+ str(new_df.groupby('Month')['Sales'].sum().max()))
+
+#Problem7: Plot the results
+# Below is the answer. Make yourself to feel comfortable with this.
+# results = new_df.groupby('Month').sum()
+# months = range(1, 13)
+# plt.bar(months, results['Sales'])
+# plt.xticks(months)
+# plt.ylabel('Sales in USD')
+# plt.xlabel('Month')
+# plt.show()
+
+#Problem8: What city had the highest number of sales?
+#Tip: add a new column called 'City' You can retrieve city from Purchase Address column. Similar to problem 4.
+
+#Problem9: Plot the results. Similar to Problem 7, but in this case, x-axis will be City instead of Month
+
+#Problem10: What time the products were sold the most?, create a bar graph here as well
+#Tip: consider using .to_datetime() and create some additional columns, such as Hour..etc
+
+#Problem11: What product was sold the most?
