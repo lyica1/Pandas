@@ -74,6 +74,7 @@ print('==================================================')
 print("Problem6 : ")
 print(new_df.groupby('Month')['Sales'].sum())
 print("Max Value : "+ str(new_df.groupby('Month')['Sales'].sum().max()))
+print('==================================================')
 
 #Problem7: Plot the results
 # Below is the answer. Make yourself to feel comfortable with this.
@@ -84,13 +85,69 @@ print("Max Value : "+ str(new_df.groupby('Month')['Sales'].sum().max()))
 # plt.ylabel('Sales in USD')
 # plt.xlabel('Month')
 # plt.show()
+results = new_df.groupby('Month').sum()
+months = range(1, 13)
+
+plt.bar(months, results['Sales'])
+plt.xticks(months)
+plt.ylabel('Sales in USD')
+plt.xlabel('Month')
+plt.show()
+print('==================================================')
+
+
 
 #Problem8: What city had the highest number of sales?
 #Tip: add a new column called 'City' You can retrieve city from Purchase Address column. Similar to problem 4.
 
+citylist=[]
+for idx, row in new_df.iterrows():
+    citylist.append(row['Purchase Address'].split(',')[1])
+new_df['City']=citylist
+print(new_df.head())
+print('==================================================')
+
+
+
 #Problem9: Plot the results. Similar to Problem 7, but in this case, x-axis will be City instead of Month
+
+results = new_df.groupby('City').sum()
+cities=new_df['City'].unique()
+
+plt.figure(figsize=(10,5))
+plt.bar(cities, results['Sales'])
+plt.xticks(cities, rotation=45)
+plt.ylabel('Sales in USD')
+plt.xlabel('City')
+plt.show()
+print('==================================================')
 
 #Problem10: What time the products were sold the most?, create a bar graph here as well
 #Tip: consider using .to_datetime() and create some additional columns, such as Hour..etc
 
+new_df['Order Date']= pd.to_datetime(new_df['Order Date'])
+new_df.info()
+new_df['Order Date_time']=new_df['Order Date'].dt.hour
+results = new_df.groupby('Order Date_time').sum()
+x_labels=new_df['Order Date_time'].unique()
+
+plt.figure(figsize=(10,5))
+plt.bar(x_labels,results['Sales'])
+plt.xticks(x_labels)
+plt.xlabel('Time(hour)')
+plt.ylabel('Sales in USD')
+plt.show()
+print('==================================================')
+
 #Problem11: What product was sold the most?
+
+results = new_df.groupby('Product').sum()
+x_labels = new_df['Product'].unique()
+
+
+plt.figure(figsize=(20,5))
+plt.bar(x_labels,results['Quantity Ordered'])
+plt.xticks(x_labels,rotation=45)
+plt.xlabel('Products')
+plt.ylabel('Number of Sold')
+plt.show()
